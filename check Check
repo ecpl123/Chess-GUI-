@@ -1,0 +1,44 @@
+            //Before any moves, make sure the king is not in check
+//            if(is_whites_turn == true) {
+//            	
+//            	AttackedPieces initialBoard = new AttackedPieces(Black_Pieces);
+//            	//initialBoard.print();
+//            	attackBoard = initialBoard.attackedFields();
+//            	
+//            	
+//        		int kingX = 0;
+//        		int kingY = 0;
+//        		for(Piece p: White_Pieces) {
+//        			if(p.getClass().equals(King.class)) {
+//        				kingX = p.getX();
+//        				kingY = p.getY();
+//        			}
+//        		}
+//        		if(attackBoard[kingY][kingX] == true) {
+//        			isKingInCheck = true;
+//        		}
+//        		else {
+//        			isKingInCheck = false;
+//        		}
+//        	}
+//            
+//        	else if(is_whites_turn == false) {
+//        		AttackedPieces initialBoard = new AttackedPieces(White_Pieces);
+//        		//initialBoard.print();
+//        		attackBoard = initialBoard.attackedFields();
+//        		
+//        		int kingX = 0;
+//        		int kingY = 0;
+//        		for(Piece p: Black_Pieces) {
+//        			if(p.getClass().equals(King.class)) {
+//        				kingX = p.getX();
+//        				kingY = p.getY();
+//        			}
+//        		}
+//        		if(attackBoard[kingY][kingX] == true) {
+//        			isKingInCheck = true;
+//        		}
+//        		else {
+//        			isKingInCheck = false;
+//        		}
+//        	}

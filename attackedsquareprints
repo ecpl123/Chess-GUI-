@@ -1,0 +1,160 @@
+//                if(Active_Piece.getClass().equals(King.class)){
+//                	Active_Piece.attackedSquares();
+//                }
+//                Active_Piece = clicked_piece;
+//                if(Active_Piece.getClass().equals(Pawn.class)){
+//                	Active_Piece.attackedSquares();
+//                }
+//                if(Active_Piece.getClass().equals(Knight.class)){
+//                	Active_Piece.attackedSquares();
+//                }
+//                if(Active_Piece.getClass().equals(Rook.class)){
+//                	Active_Piece.attackedSquares();
+//                }
+//                if(Active_Piece.getClass().equals(Bishop.class)){
+//                	Active_Piece.attackedSquares();
+//                }
+//                if(Active_Piece.getClass().equals(Queen.class)){
+//                	Active_Piece.attackedSquares();
+//                }
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+if (Active_Piece.getClass().equals(King.class))
+            	{
+
+            		King simPiece = new King(Clicked_Column, Clicked_Row, Active_Piece.isWhite(), "K.png", Active_Piece.board);
+            		
+            		simPiece.setX(Clicked_Column);
+            		simPiece.setY(Clicked_Row);
+            		
+            		if (clicked_piece != null)
+            		{
+            			if (clicked_piece.isWhite())
+            			{
+            				White_Pieces_Simulated.remove(clicked_piece);
+            			}
+            			else
+            			{
+            				Black_Pieces_Simulated.remove(clicked_piece);
+            			}
+            		}
+            		boolean[][] simAttackBoard = new boolean[8][8];
+                	int kingX = 0;
+                	int kingY = 0;
+            		if(is_whites_turn == true) {
+            			
+            			//White_Pieces_Simulated.remove(Active_Piece);
+        				White_Pieces_Simulated.add(simPiece);
+        				System.out.println("simPiece in White_Pieces_Simulated " + White_Pieces_Simulated.indexOf(simPiece));
+        				for(Piece p: White_Pieces_Simulated) {
+        					if(p.getX() == Active_PieceX && p.getY() == Active_PieceY) {
+        						System.out.println("The piece is still here!!!!!!");
+        					}
+        				}
+            			simAttackBoard = AttackedPieces.attackedFields(Black_Pieces_Simulated);
+            			for(Piece p: White_Pieces_Simulated) {
+            				if(p.getClass().equals(King.class)) {
+            					kingX = p.getX();
+            					kingY = p.getY();
+            				}
+            			}
+            			if(simAttackBoard[kingY][kingX] == true) {
+            				causesCheck = true;
+            				System.out.println(causesCheck);
+            			}
+            			else {
+                				if (clicked_piece != null)
+                        		{
+                        			if (clicked_piece.isWhite())
+                        			{
+                        				White_Pieces.remove(clicked_piece);
+                        			}
+                        			else
+                        			{
+                        				Black_Pieces.remove(clicked_piece);
+                        			}
+                        		}
+                				Active_Piece.setX(Clicked_Column);
+                        		Active_Piece.setY(Clicked_Row);
+
+                        		if (Active_Piece.getClass().equals(Pawn.class))
+                        		{
+                        			Pawn castedPawn = (Pawn)(Active_Piece);
+                        			castedPawn.setHasMoved(true);
+                        		}
+
+
+                        		Active_Piece = null;
+                        		turnCounter++;
+                				
+                			}         		
+
+            		}
+            		else if(is_whites_turn == false) {
+            			//Black_Pieces_Simulated.remove(Active_Piece);
+            			Black_Pieces_Simulated.add(simPiece);
+            			System.out.println("simPiece in Black_Pieces_Simulated " + Black_Pieces_Simulated.indexOf(simPiece));
+        				for(Piece p: White_Pieces_Simulated) {
+        					if(p.getX() == Active_PieceX && p.getY() == Active_PieceY) {
+        						System.out.println("The piece is still here!!!!!!");
+        					}
+        				}
+            			simAttackBoard = AttackedPieces.attackedFields(White_Pieces_Simulated);
+            			for(Piece p: Black_Pieces_Simulated) {
+            				if(p.getClass().equals(King.class)) {
+            					kingX = p.getX();
+            					kingY = p.getY();
+            				}
+            			}
+            			if(simAttackBoard[kingY][kingX] == true) {
+            				causesCheck = true;
+            				System.out.println(causesCheck);
+            			}
+            			else {
+                				if (clicked_piece != null)
+                        		{
+                        			if (clicked_piece.isWhite())
+                        			{
+                        				White_Pieces.remove(clicked_piece);
+                        			}
+                        			else
+                        			{
+                        				Black_Pieces.remove(clicked_piece);
+                        			}
+                        		}
+                				Active_Piece.setX(Clicked_Column);
+                        		Active_Piece.setY(Clicked_Row);
+
+                        		if (Active_Piece.getClass().equals(Pawn.class))
+                        		{
+                        			Pawn castedPawn = (Pawn)(Active_Piece);
+                        			castedPawn.setHasMoved(true);
+                        		}
+
+
+                        		Active_Piece = null;
+                        		turnCounter++;
+                				
+                		}         		
+            		}
+            	}
